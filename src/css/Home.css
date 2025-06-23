@@ -1,0 +1,12 @@
+.regionButton {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-between;
+   height: 200px;
+}
+
+@media only screen and (max-width: 1488px) {
+   .regionButton > button {
+      width: calc(100% / 4);
+   }
+}
