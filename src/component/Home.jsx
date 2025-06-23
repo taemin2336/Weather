@@ -1,6 +1,9 @@
 import styled from 'styled-components'
 import TopMenu from './TopMenu'
 import '../css/Home.css'
+import { useSelector, useDispatch } from 'react-redux'
+import axios from 'axios'
+import { StyledButton } from '../styles/styledComponents'
 
 const StyledButton = styled.button`
    background-color: #78ff95;
@@ -13,6 +16,11 @@ const StyledButton = styled.button`
 `
 
 function Main() {
+   const dispatch = useDispatch()
+   const weahterData = useSelector((state) => state.weather)
+   console.log(dispatch)
+   console.log(weahterData)
+
    return (
       <div>
          <TopMenu />
