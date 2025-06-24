@@ -3,13 +3,13 @@ import { getWeather } from '../api/weatherApi'
 
 export const fetchWeather = createAsyncThunk('weathers/fetchWeathers', async (city) => {
    const response = await getWeather(city)
-   return response
+   return response.data
 })
 
 const weatherSlice = createSlice({
    name: 'weather',
    initialState: {
-      weathers: [],
+      weather: null,
       loading: false,
       error: null,
    },
@@ -22,7 +22,7 @@ const weatherSlice = createSlice({
          })
          .addCase(fetchWeather.fulfilled, (state, action) => {
             state.loading = false
-            state.weathers = action.payload
+            state.weather = action.payload
          })
          .addCase(fetchWeather.rejected, (state, action) => {
             state.loading = false

@@ -1,12 +1,48 @@
-.regionButton {
+.main {
    display: flex;
+   background-color: #fffee2;
+}
+
+.regionButton {
+   text-align: center;
+}
+
+/* main left */
+.main_left {
+   width: 30%;
+}
+.main_left > img {
+   width: 100%;
+   background: radial-gradient(circle at center, rgb(179, 255, 255), rgb(79, 141, 255) 80%);
+}
+.main_left > p {
+   width: 100%;
+   font-weight: bold;
+   text-align: center;
+}
+/* main right */
+.main_right {
+   width: 70%;
+   display: grid;
    flex-wrap: wrap;
-   justify-content: space-between;
-   height: 200px;
+   grid-template-columns: 1fr 1fr;
+   text-align: center;
+   line-height: 90px;
+}
+.main_right > p {
+   font-size: large;
+   font-weight: bold;
+}
+.main_right > p:nth-of-type(weather) {
+   font-size: 50px;
 }
 
 @media only screen and (max-width: 1488px) {
+   .regionButton {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+   }
    .regionButton > button {
-      width: calc(100% / 4);
+      width: 60%;
    }
 }

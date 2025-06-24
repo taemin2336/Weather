@@ -1,11 +1,15 @@
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 const StyledButton = styled.button`
    background-color: #baffff;
    border-style: none;
-   height: 100%;
-   margin-left: 80px;
+   height: 65px;
    font-size: 28px;
+   width: 100%;
+   &:hover {
+      background-color: #75ffff;
+   }
 `
 function TopMenu() {
    return (
@@ -13,10 +17,17 @@ function TopMenu() {
          style={{
             backgroundColor: '#BAFFFF',
             height: '65px',
+            display: 'grid',
+            gridTemplateColumns: 'repeat(3, 1fr)',
          }}
       >
-         <StyledButton>홈</StyledButton>
-         <StyledButton>전체 날씨 보기</StyledButton>
+         <Link to={'/'}>
+            <StyledButton>홈</StyledButton>
+         </Link>
+         <Link to={'/whole'}>
+            <StyledButton>전체 날씨 보기</StyledButton>
+         </Link>
+
          <StyledButton>메뉴1</StyledButton>
       </div>
    )
