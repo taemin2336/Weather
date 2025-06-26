@@ -28,7 +28,9 @@ function TopMenu() {
             <StyledButton>전체 날씨 보기</StyledButton>
          </Link>
 
-         <StyledButton>메뉴1</StyledButton>
+         <Link to={'/map'}>
+            <StyledButton>우리나라 지도</StyledButton>
+         </Link>
       </div>
    )
 }

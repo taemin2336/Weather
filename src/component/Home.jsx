@@ -19,57 +19,12 @@ const StyledButton = styled.button`
    }
 `
 
-function Main() {
+function Main({ windDirection, change, cities }) {
    const dispatch = useDispatch()
    const { weather, loading, error } = useSelector((state) => state.weather)
 
-   const cities = ['서울', '인천', '대전', '광주', '대구', '울산', '부산', '제주']
-
    if (loading) return <p>로딩중</p>
    if (error) return <p>Error: {error}</p>
-
-   const windDirection = (e) => {
-      if (e < 23) {
-         return '북풍'
-      } else if (e < 68) {
-         return '북동풍'
-      } else if (e < 113) {
-         return '동풍'
-      } else if (e < 158) {
-         return '남동풍'
-      } else if (e < 203) {
-         return '남풍'
-      } else if (e < 248) {
-         return '남서풍'
-      } else if (e < 293) {
-         return '서풍'
-      } else if (e < 338) {
-         return '북서풍'
-      }
-   }
-   const change = (e) => {
-      switch (e) {
-         case '서울':
-            return 'seoul'
-         case '인천':
-            return 'incheon'
-         case '대전':
-            return 'daejeon'
-         case '광주':
-            return 'gwangju'
-         case '대구':
-            return 'daegu'
-         case '울산':
-            return 'ulsan'
-         case '부산':
-            return 'busan'
-         case '제주':
-            return 'jeju'
-
-         default:
-            break
-      }
-   }
 
    return (
       <div>
@@ -83,6 +38,13 @@ function Main() {
             ))}
          </div>
 
+         <h1
+            style={{
+               textAlign: 'center',
+            }}
+         >
+            {weather && weather.name}날씨 정보
+         </h1>
          {weather && (
             <div className="main">
                <div className="main_left">
