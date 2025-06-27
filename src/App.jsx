@@ -54,7 +54,7 @@ function App() {
       <Routes>
          <Route path="/" element={<Home windDirection={windDirection} change={change} cities={cities} />}></Route>
          <Route path="/whole" element={<Whole windDirection={windDirection} change={change} cities={cities} />}></Route>
-         <Route path="/map" element={<Map />}></Route>
+         <Route path="/map" element={<Map windDirection={windDirection} change={change} cities={cities} />}></Route>
          <Route path="/*" element={<NotFound />}></Route>
       </Routes>
    )
