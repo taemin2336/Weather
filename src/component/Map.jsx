@@ -24,7 +24,7 @@ const Map = ({ windDirection, change, cities }) => {
 
       var positions = [
          {
-            content: `<div>서울${dispatch(fetchWeather())}</div>`,
+            content: `<div>서울</div>`,
             latlng: new kakao.maps.LatLng(37.566535, 126.9779692),
          },
          {
@@ -96,46 +96,17 @@ const Map = ({ windDirection, change, cities }) => {
       <div>
          <TopMenu />
          <div>
-            <div id="map" style={{ width: '500px', height: '600px' }}></div>
-            <div
-               style={{
-                  width: '500px',
-               }}
-            >
-               <div className="regionButton">
-                  {cities.map((city) => (
-                     <button key={city} onClick={() => dispatch(fetchWeather(change(city)))}>
-                        {city}
-                     </button>
-                  ))}
-               </div>
-
-               <h1
-                  style={{
-                     textAlign: 'center',
-                  }}
-               >
-                  {weather && weather.name}날씨 정보
-               </h1>
-               {weather && (
-                  <div className="main">
-                     <div className="main_left">
-                        <img className="weather_img" src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt="weather icon" />
-                        <p>날씨 : {weather.weather[0].description}</p>
-                     </div>
-
-                     <div className="main_right">
-                        <p>온도: {weather.main.temp}°C</p>
-                        <p>체감온도: {weather.main.feels_like}°C</p>
-                        <p>1시간 강수량: {weather.rain?.['1h'] ? `${weather.rain['1h']}mm` : '없음'}</p>
-
-                        <p>습도: {weather.main.humidity}%</p>
-                        <p>풍속: {weather.wind.speed} m/s</p>
-                        <p>풍향: {windDirection(weather.wind.deg)}</p>
-                     </div>
-                  </div>
-               )}
+            <div>
+               <p style={{ textAlign: 'center' }}>마우스를 올리면 지역이름이 나옵니다.</p>
             </div>
+            <div
+               id="map"
+               style={{
+                  width: '100%',
+                  height: '1600px',
+                  textAlign: 'center',
+               }}
+            ></div>
          </div>
       </div>
    )

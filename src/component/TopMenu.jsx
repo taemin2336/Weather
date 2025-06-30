@@ -29,7 +29,7 @@ function TopMenu() {
          </Link>
 
          <Link to={'/map'}>
-            <StyledButton>우리나라 지도</StyledButton>
+            <StyledButton>우리나라 지도 보기</StyledButton>
          </Link>
       </div>
    )
